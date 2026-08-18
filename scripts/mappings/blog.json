@@ -1,0 +1,6 @@
+[
+	{
+		"source": "../../content/blog",
+		"target": "./.temp-content/blog"
+	}
+]

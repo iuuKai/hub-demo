@@ -1,0 +1,16 @@
+{
+	"version": 2,
+	"buildCommand": "pnpm turbo run build",
+	"outputDirectory": ".",
+	"installCommand": "pnpm install --no-frozen-lockfile",
+	"rewrites": [
+		{
+			"source": "/blog(/?)",
+			"destination": "/apps/blog/.vitepress/dist/index.html"
+		},
+		{
+			"source": "/blog/:path*",
+			"destination": "/apps/blog/.vitepress/dist/:path*"
+		}
+	]
+}
