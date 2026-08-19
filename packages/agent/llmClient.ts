@@ -15,7 +15,7 @@ export async function chatCompletion(
 	}
 
 	const controller = new AbortController()
-	const timeoutId = setTimeout(() => controller.abort(), 50000)
+	const timeoutId = setTimeout(() => controller.abort(), 55000)
 
 	let res: Response
 	try {
@@ -35,7 +35,7 @@ export async function chatCompletion(
 		})
 	} catch (err) {
 		if (err instanceof Error && err.name === 'AbortError') {
-			throw new Error('LLM请求超时(50s)')
+			throw new Error('LLM请求超时(55s)')
 		}
 		throw err
 	} finally {
