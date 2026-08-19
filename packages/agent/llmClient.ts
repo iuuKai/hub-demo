@@ -14,19 +14,33 @@ export async function chatCompletion(
 		throw new Error('缺少环境变量：SILICONFLOW_API_KEY / SILICONFLOW_BASE_URL / MODEL_NAME')
 	}
 
-	const res = await fetch(`${BASE_URL}/chat/completions`, {
-		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${API_KEY}`,
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			model: MODEL,
-			messages,
-			temperature: 0.4,
-			max_tokens: 2048
+	const controller = new AbortController()
+	const timeoutId = setTimeout(() => controller.abort(), 50000)
+
+	let res: Response
+	try {
+		res = await fetch(`${BASE_URL}/chat/completions`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${API_KEY}`,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				model: MODEL,
+				messages,
+				temperature: 0.4,
+				max_tokens: 2048
+			}),
+			signal: controller.signal
 		})
-	})
+	} catch (err) {
+		if (err instanceof Error && err.name === 'AbortError') {
+			throw new Error('LLM请求超时(50s)')
+		}
+		throw err
+	} finally {
+		clearTimeout(timeoutId)
+	}
 
 	const data = await res.json()
 	console.log('llm原始返回：', JSON.stringify(data, null, 2))
