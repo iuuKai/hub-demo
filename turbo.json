@@ -1,5 +1,6 @@
 {
 	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": ["SILICONFLOW_API_KEY", "SILICONFLOW_BASE_URL", "MODEL_NAME"],
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],

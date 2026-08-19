@@ -4,6 +4,10 @@
 	"scripts": {
 		"build": "tsc -p tsconfig.json"
 	},
+	"devDependencies": {
+		"typescript": "^5.7.2",
+		"@types/node": "^26.2.0"
+	},
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
