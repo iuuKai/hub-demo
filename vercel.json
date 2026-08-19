@@ -3,12 +3,6 @@
 	"buildCommand": "pnpm turbo run build",
 	"outputDirectory": ".",
 	"installCommand": "pnpm install --no-frozen-lockfile",
-	"functions": {
-		"api/agent-chat.ts": {
-			"maxDuration": 300,
-			"memory": 512
-		}
-	},
 	"headers": [
 		{
 			"source": "/(.*)",
