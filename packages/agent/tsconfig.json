@@ -17,7 +17,9 @@
 		"baseUrl": ".",
 		"paths": {
 			"@hub/*": ["../*"]
-		}
+		},
+		"verbatimModuleSyntax": false,
+		"isolatedModules": true
 	},
 	"include": ["**/*"],
 	"exclude": ["node_modules", "dist"]
