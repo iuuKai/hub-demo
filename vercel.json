@@ -4,10 +4,9 @@
 	"outputDirectory": ".",
 	"installCommand": "pnpm install --no-frozen-lockfile",
 	"functions": {
-		"functions": {
-			"api/**/*.ts": {
-				"maxDuration": 300
-			}
+		"api/agent-chat.ts": {
+			"maxDuration": 300,
+			"memory": 512
 		}
 	},
 	"headers": [
