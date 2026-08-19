@@ -15,34 +15,61 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 		return json(res, 405, { success: false, message: '仅支持POST请求' })
 	}
 
-	// 临时调试模式：不调用 @hub/agent，直接返回环境变量状态 + 模拟数据
-	// 验证：1) Vercel 函数部署链路通；2) 三个环境变量是否正确注入
-	const SILICONFLOW_API_KEY = process.env.SILICONFLOW_API_KEY
-	const SILICONFLOW_BASE_URL = process.env.SILICONFLOW_BASE_URL
-	const MODEL_NAME = process.env.MODEL_NAME
+	const totalStart = Date.now()
 
-	const envStatus = {
-		SILICONFLOW_API_KEY: SILICONFLOW_API_KEY
-			? `已配置（前6位: ${SILICONFLOW_API_KEY.slice(0, 6)}...，长度${SILICONFLOW_API_KEY.length}）`
-			: '❌ 未配置',
-		SILICONFLOW_BASE_URL: SILICONFLOW_BASE_URL || '❌ 未配置',
-		MODEL_NAME: MODEL_NAME || '❌ 未配置'
+	let runExamAgent: (text: string) => Promise<unknown>
+	try {
+		const mod = await import('@hub/agent')
+		if (typeof mod?.runExamAgent !== 'function') {
+			throw new TypeError(
+				'runExamAgent is not a function; packages/agent/dist likely missing or stale'
+			)
+		}
+		runExamAgent = mod.runExamAgent
+	} catch (err) {
+		console.error('[agent-chat] import error:', err)
+		const message = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
+		return json(res, 500, {
+			success: false,
+			error: message,
+			_hint: '如果提示 module not found，请确认 Vercel Build 阶段 @hub/agent:build 成功产出 dist',
+			totalDurationMs: Date.now() - totalStart
+		})
 	}
 
-	const documentText: string = (req.body?.documentText ?? '') as string
+	try {
+		const documentText: string = (req.body?.documentText ?? '') as string
 
-	return json(res, 200, {
-		success: true,
-		message: '调试模式：未调用 LLM，仅验证部署链路',
-		env: envStatus,
-		receivedInput: {
-			documentTextLength: documentText.length,
-			documentTextPreview: documentText.slice(0, 100)
-		},
-		mockData: {
-			summary: '这是一段模拟的文档摘要（用于验证前端能正确解析响应）',
-			keyPoints: ['要点1', '要点2', '要点3'],
-			timestamp: new Date().toISOString()
+		if (!documentText.trim()) {
+			return json(res, 400, {
+				success: false,
+				message: 'documentText不能为空',
+				totalDurationMs: Date.now() - totalStart
+			})
 		}
-	})
+
+		const agentStart = Date.now()
+		const result = await runExamAgent(documentText)
+		const agentDuration = Date.now() - agentStart
+		const totalDuration = Date.now() - totalStart
+
+		console.log(`[agent-chat] agent耗时: ${agentDuration}ms, 总耗时: ${totalDuration}ms`)
+
+		return json(res, 200, {
+			success: true,
+			data: result,
+			timing: {
+				agentMs: agentDuration,
+				totalMs: totalDuration
+			}
+		})
+	} catch (err) {
+		console.error('[agent-chat] invocation error:', err)
+		const message = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
+		return json(res, 500, {
+			success: false,
+			error: message,
+			totalDurationMs: Date.now() - totalStart
+		})
+	}
 }
