@@ -1,8 +1,23 @@
 {
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
+		"target": "ES2022",
+		"module": "CommonJS",
+		"moduleResolution": "Node10",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"strict": true,
 		"noEmit": false,
-		"outDir": "./dist"
+		"outDir": "./dist",
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"baseUrl": ".",
+		"paths": {
+			"@hub/*": ["../*"]
+		}
 	},
 	"include": ["**/*"],
 	"exclude": ["node_modules", "dist"]
