@@ -1,4 +1,4 @@
-// api/agent-chat.ts
+import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { runExamAgent } from '@hub/agent'
 
 export const config = {
@@ -6,34 +6,28 @@ export const config = {
 	memory: 512
 }
 
-export default async function handler(req: Request) {
+const json = (res: VercelResponse, status: number, body: Record<string, unknown>) => {
+	res.setHeader('content-type', 'application/json; charset=utf-8')
+	res.status(status).json(body)
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
 	if (req.method !== 'POST') {
-		return new Response(JSON.stringify({ success: false, message: '仅支持POST请求' }), {
-			status: 405,
-			headers: { 'content-type': 'application/json' }
-		})
+		return json(res, 405, { success: false, message: '仅支持POST请求' })
 	}
 
 	try {
-		const payload = await req.json()
-		const documentText: string = payload.documentText ?? ''
+		const documentText: string = (req.body?.documentText ?? '') as string
 
 		if (!documentText.trim()) {
-			return new Response(JSON.stringify({ success: false, message: 'documentText不能为空' }), {
-				status: 400,
-				headers: { 'content-type': 'application/json' }
-			})
+			return json(res, 400, { success: false, message: 'documentText不能为空' })
 		}
 
 		const result = await runExamAgent(documentText)
-		return new Response(JSON.stringify({ success: true, data: result }), {
-			status: 200,
-			headers: { 'content-type': 'application/json' }
-		})
+		return json(res, 200, { success: true, data: result })
 	} catch (err) {
-		return new Response(JSON.stringify({ success: false, error: String(err) }), {
-			status: 500,
-			headers: { 'content-type': 'application/json' }
-		})
+		const message = err instanceof Error ? `${err.name}: ${err.message}` : String(err)
+		console.error('[agent-chat] invocation error:', err)
+		return json(res, 500, { success: false, error: message })
 	}
 }

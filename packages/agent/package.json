@@ -1,6 +1,9 @@
 {
 	"name": "@hub/agent",
 	"type": "module",
+	"scripts": {
+		"build": "tsc -p tsconfig.json"
+	},
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",

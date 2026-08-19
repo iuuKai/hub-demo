@@ -9,7 +9,7 @@
 			"headers": [
 				{
 					"key": "Permissions-Policy",
-					"value": "fullscreen=(), geolocation=(), microphone=(), camera=(), unload=()"
+					"value": "fullscreen=(), geolocation=(), microphone=(), camera=()"
 				}
 			]
 		}
