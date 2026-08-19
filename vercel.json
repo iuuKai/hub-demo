@@ -13,6 +13,17 @@
 			"memory": 512
 		}
 	},
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "Permissions-Policy",
+					"value": "fullscreen=(), geolocation=(), microphone=(), camera=()"
+				}
+			]
+		}
+	],
 	"rewrites": [
 		{
 			"source": "/api/:path*",
