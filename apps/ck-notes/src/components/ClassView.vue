@@ -58,8 +58,6 @@ const htmlSrc = computed(() => (chapter.value?.html ? `${import.meta.env.BASE_UR
 						{{ store.chapterIndex + 1 }} / {{ chapters.length }}
 					</span>
 				</template>
-
-				<span v-if="chapter" class="chapter-title">{{ chapter.label }}</span>
 			</div>
 
 			<div class="viewer">
@@ -128,16 +126,6 @@ const htmlSrc = computed(() => (chapter.value?.html ? `${import.meta.env.BASE_UR
 	font-size: 13px;
 	color: var(--muted);
 	white-space: nowrap;
-}
-
-.chapter-title {
-	font-size: 14px;
-	font-weight: 600;
-	color: var(--text);
-	margin-left: auto;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 .viewer {

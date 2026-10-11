@@ -18,10 +18,8 @@ const pageItems = computed(() => props.chapters.filter((c) => Boolean(c.png)))
 
 const pageItem = computed(() => {
 	const item = pageItems.value[props.current]
-	return item?.png ? `${BASE}${item.png}` : ''
+	return item?.png ? { src: `${BASE}${item.png}`, alt: item.label } : null
 })
-
-const pageLabel = computed(() => pageItems.value[props.current]?.label ?? '')
 
 /** 有真实宽高时用 aspect-ratio 预留准确占位空间，跳章节定位不偏移 */
 function lazyStyle(c: Chapter) {
@@ -144,9 +142,8 @@ function onKey(e: KeyboardEvent) {
 
 		<!-- 翻页：一次一张，支持前后翻页 -->
 		<div v-else class="page-stage">
-			<img v-if="pageItem" :src="pageItem" :alt="pageLabel" class="page-img" />
+			<img v-if="pageItem" :src="pageItem.src" :alt="pageItem.alt" class="page-img" />
 			<p v-else class="empty">该科目暂无图片讲义</p>
-			<div class="page-label">{{ pageLabel }}</div>
 			<button
 				type="button"
 				class="page-btn prev"
@@ -227,18 +224,6 @@ function onKey(e: KeyboardEvent) {
 	object-fit: contain;
 	border-radius: var(--radius);
 	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-}
-
-.page-label {
-	position: absolute;
-	top: 12px;
-	left: 12px;
-	background: rgba(0, 0, 0, 0.55);
-	color: #fff;
-	font-size: 12px;
-	padding: 4px 10px;
-	border-radius: 999px;
-	backdrop-filter: blur(4px);
 }
 
 .page-btn {
