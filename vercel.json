@@ -16,6 +16,18 @@
 		{
 			"source": "/blog/:path*",
 			"destination": "/apps/blog/.vitepress/dist/:path*"
+		},
+		{
+			"source": "/demo-exam-ai(/?)",
+			"destination": "/apps/demo-exam-ai/dist/index.html"
+		},
+		{
+			"source": "/demo-exam-ai/:path*.:ext",
+			"destination": "/apps/demo-exam-ai/dist/:path*.:ext"
+		},
+		{
+			"source": "/demo-exam-ai/:path*",
+			"destination": "/apps/demo-exam-ai/dist/index.html"
 		}
 	]
 }
