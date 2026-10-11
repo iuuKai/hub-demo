@@ -248,19 +248,19 @@ function onKey(e: KeyboardEvent) {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.12);
+	background: rgba(15, 23, 42, 0.45);
 	color: #fff;
 	font-size: 26px;
 	line-height: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 5;
 	transition: background 0.15s ease;
-	backdrop-filter: blur(4px);
 }
 
 .page-btn:hover:not(:disabled) {
-	background: rgba(255, 255, 255, 0.28);
+	background: rgba(15, 23, 42, 0.65);
 }
 
 .page-btn.prev {

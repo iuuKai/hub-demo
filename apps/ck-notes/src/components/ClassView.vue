@@ -73,26 +73,26 @@ const htmlSrc = computed(() => (chapter.value?.html ? `${import.meta.env.BASE_UR
 						<p v-else class="empty">
 							本章暂无 HTML 讲义，可切换到「图片浏览」查看
 						</p>
-					</div>
-					<div v-if="chapters.length > 1" class="html-pager">
+						<!-- 左右悬浮翻页按钮（同图片翻页样式，z-index 高于内容） -->
 						<button
+							v-if="htmlSrc && chapters.length > 1"
 							type="button"
-							class="page-nav"
+							class="html-page-btn prev"
 							:disabled="store.chapterIndex <= 0"
+							aria-label="上一页"
 							@click="setChapter(store.chapterIndex - 1)"
 						>
-							‹ 上一页
+							‹
 						</button>
-						<span class="pager-count">
-							{{ store.chapterIndex + 1 }} / {{ chapters.length }}
-						</span>
 						<button
+							v-if="htmlSrc && chapters.length > 1"
 							type="button"
-							class="page-nav"
+							class="html-page-btn next"
 							:disabled="store.chapterIndex >= chapters.length - 1"
+							aria-label="下一页"
 							@click="setChapter(store.chapterIndex + 1)"
 						>
-							下一页 ›
+							›
 						</button>
 					</div>
 				</template>
@@ -152,12 +152,13 @@ const htmlSrc = computed(() => (chapter.value?.html ? `${import.meta.env.BASE_UR
 	min-height: 0;
 }
 
-/* HTML 讲义：内容区占满，底部固定翻页条 */
+/* HTML 讲义：内容区占满，左右悬浮翻页按钮 */
 .html-wrap {
 	flex: 1;
 	min-height: 0;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 
 .html-wrap > * {
@@ -165,44 +166,38 @@ const htmlSrc = computed(() => (chapter.value?.html ? `${import.meta.env.BASE_UR
 	min-height: 0;
 }
 
-.html-pager {
-	flex: 0 0 auto;
+.html-page-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(15, 23, 42, 0.45);
+	color: #fff;
+	font-size: 26px;
+	line-height: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 14px;
-	padding: 10px 0 2px;
-	border-top: 1px solid var(--border);
-	margin-top: 8px;
+	z-index: 20;
+	transition: background 0.15s ease;
 }
 
-.page-nav {
-	display: inline-flex;
-	align-items: center;
-	gap: 4px;
-	padding: 7px 18px;
-	border: 1px solid var(--border);
-	border-radius: 999px;
-	background: var(--card);
-	color: var(--text);
-	font-size: 14px;
-	cursor: pointer;
-	transition: border-color 0.15s ease, background 0.15s ease;
+.html-page-btn:hover:not(:disabled) {
+	background: rgba(15, 23, 42, 0.65);
 }
 
-.page-nav:hover:not(:disabled) {
-	border-color: var(--brand);
-	background: var(--brand-weak);
-}
-
-.page-nav:disabled {
-	opacity: 0.4;
+.html-page-btn:disabled {
+	opacity: 0.35;
 	cursor: not-allowed;
 }
 
-.pager-count {
-	font-size: 13px;
-	color: var(--muted);
-	white-space: nowrap;
+.html-page-btn.prev {
+	left: 10px;
+}
+
+.html-page-btn.next {
+	right: 10px;
 }
 </style>

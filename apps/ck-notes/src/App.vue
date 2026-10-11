@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import {
 	store,
 	loadIndex,
@@ -9,18 +9,37 @@ import {
 	toggleSidebar,
 	currentChapters
 } from './composables/useNotesStore'
+import type { FeatureId, SubjectId } from './data/types'
 import FeatureTabs from './components/FeatureTabs.vue'
 import SubjectBar from './components/SubjectBar.vue'
 import ChapterPicker from './components/ChapterPicker.vue'
 import ClassView from './components/ClassView.vue'
 import DocView from './components/DocView.vue'
 
-onMounted(loadIndex)
-
 const loading = computed(() => store.status === 'loading')
 const error = computed(() => store.status === 'error')
 const ready = computed(() => store.status === 'ready')
 const chapters = currentChapters
+
+onMounted(loadIndex)
+
+// 移动端菜单（仅当前会话生效）
+const menuOpen = ref(false)
+
+function pickFeature(f: FeatureId) {
+	setFeature(f)
+	menuOpen.value = false
+}
+
+function pickSubject(s: SubjectId) {
+	setSubject(s)
+	menuOpen.value = false
+}
+
+function pickChapter(i: number) {
+	setChapter(i)
+	menuOpen.value = false
+}
 </script>
 
 <template>
@@ -44,6 +63,18 @@ const chapters = currentChapters
 					<p>成人高考专升本 · 政治 / 英语 / 高数二</p>
 				</div>
 			</div>
+			<!-- 移动端：右侧菜单按钮（点击展开 功能/科目/章节） -->
+			<button
+				type="button"
+				class="mobile-menu-btn"
+				:aria-label="menuOpen ? '关闭菜单' : '打开菜单'"
+				:aria-expanded="menuOpen"
+				@click="menuOpen = !menuOpen"
+			>
+				<span class="menu-line"></span>
+				<span class="menu-line"></span>
+				<span class="menu-line"></span>
+			</button>
 		</header>
 
 		<div class="app-body">
@@ -55,14 +86,14 @@ const chapters = currentChapters
 				</div>
 				<div class="aside-block">
 					<div class="aside-title">科目</div>
-					<SubjectBar wrap :model-value="store.subject" @update:model-value="setSubject" />
+					<SubjectBar :model-value="store.subject" @update:model-value="setSubject" />
 				</div>
 				<div v-if="store.feature === 'classes'" class="aside-block">
-					<div class="aside-title">章节（第 N 天）</div>
+					<div class="aside-title">章节（第N天）</div>
 					<ChapterPicker
-						wrap
 						:chapters="chapters"
 						:model-value="store.chapterIndex"
+						wrap
 						@update:model-value="setChapter"
 					/>
 				</div>
@@ -70,17 +101,6 @@ const chapters = currentChapters
 
 			<!-- 主区域 -->
 			<main class="app-main">
-				<!-- 移动端顶部：科目 + 章节 -->
-				<div class="mobile-top">
-					<SubjectBar :model-value="store.subject" @update:model-value="setSubject" />
-					<ChapterPicker
-						v-if="store.feature === 'classes'"
-						:chapters="chapters"
-						:model-value="store.chapterIndex"
-						@update:model-value="setChapter"
-					/>
-				</div>
-
 				<div class="main-slot">
 					<div v-if="loading" class="state">正在加载学习资料…</div>
 					<div v-else-if="error" class="state error">
@@ -98,9 +118,30 @@ const chapters = currentChapters
 			</main>
 		</div>
 
-		<!-- 移动端底部导航 -->
-		<nav class="bottom-nav">
-			<FeatureTabs :model-value="store.feature" @update:model-value="setFeature" />
-		</nav>
+		<!-- 移动端菜单（功能/科目/章节，点击遮罩或选择后关闭） -->
+		<Teleport to="body">
+			<template v-if="menuOpen">
+				<div class="menu-backdrop" @click="menuOpen = false"></div>
+				<div class="mobile-menu">
+					<div class="menu-group">
+						<div class="menu-title">功能</div>
+						<FeatureTabs :model-value="store.feature" @update:model-value="pickFeature" />
+					</div>
+					<div class="menu-group">
+						<div class="menu-title">科目</div>
+						<SubjectBar :model-value="store.subject" @update:model-value="pickSubject" />
+					</div>
+					<div v-if="store.feature === 'classes'" class="menu-group">
+						<div class="menu-title">章节（第N天）</div>
+						<ChapterPicker
+							:chapters="chapters"
+							:model-value="store.chapterIndex"
+							wrap
+							@update:model-value="pickChapter"
+						/>
+					</div>
+				</div>
+			</template>
+		</Teleport>
 	</div>
 </template>
