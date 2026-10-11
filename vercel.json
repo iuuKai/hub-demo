@@ -8,17 +8,6 @@
 			"includeFiles": "packages/agent/**"
 		}
 	},
-	"headers": [
-		{
-			"source": "/(.*)",
-			"headers": [
-				{
-					"key": "Permissions-Policy",
-					"value": "fullscreen=(), geolocation=(), microphone=(), camera=()"
-				}
-			]
-		}
-	],
 	"rewrites": [
 		{
 			"source": "/blog(/?)",

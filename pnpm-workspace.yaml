@@ -4,3 +4,4 @@ packages:
   - 'scripts'
 allowBuilds:
   esbuild: false
+  vue-demi: false

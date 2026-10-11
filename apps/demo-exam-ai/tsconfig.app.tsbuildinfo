@@ -1,0 +1,1 @@
+{"root":["./src/env.d.ts","./src/main.ts","./src/data/questions.ts","./src/stores/exam.ts","./src/app.vue","./src/components/examheader.vue","./src/components/questioncard.vue","./src/components/questionnav.vue","./src/components/resultpanel.vue"],"version":"5.9.3"}
