@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+.step { margin: 4px 0; padding-left: 12px; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第10天 · 高数二</h1>
+<div class="day-tag">概率论初步（新课全部结束）</div>
+
+<h2 class="subject">一、随机事件与概率</h2>
+
+<h3>1. 基本概念</h3>
+<table>
+<tr><th>概念</th><th>定义</th><th>例子</th></tr>
+<tr><td>随机试验</td><td>结果不确定的试验</td><td>掷骰子</td></tr>
+<tr><td>样本空间</td><td>所有可能结果的集合</td><td>掷骰子：{1,2,3,4,5,6}</td></tr>
+<tr><td>随机事件</td><td>样本空间的子集</td><td>掷出偶数：{2,4,6}</td></tr>
+<tr><td>必然事件</td><td>一定发生的事件</td><td>掷出的点数≤6</td></tr>
+<tr><td>不可能事件</td><td>一定不发生的事件</td><td>掷出点数=7</td></tr>
+</table>
+
+<h3>2. 概率的定义</h3>
+<div class="key">
+概率就是事件发生的可能性大小，用P(A)表示，范围：<br>
+<b>0 ≤ P(A) ≤ 1</b><br>
+- P(A) = 0：不可能发生<br>
+- P(A) = 1：一定发生<br>
+- P(A) = 0.5：一半一半
+</div>
+
+<h2 class="subject">二、古典概型</h2>
+
+<h3>1. 什么是古典概型？</h3>
+<div class="key">
+满足两个条件：<br>
+1. <b>有限性</b>：所有可能结果只有有限个<br>
+2. <b>等可能性</b>：每个结果发生的可能性相等
+</div>
+
+<h3>2. 古典概型公式</h3>
+<div class="formula">
+P(A) = 事件A包含的基本事件数 / 总的基本事件数
+</div>
+
+<div class="example">
+<b>例题1</b>：掷一颗骰子，求掷出偶数的概率。<br><br>
+<b>解</b>：<br>
+- 总的基本事件数：6（1,2,3,4,5,6）<br>
+- 事件A（偶数）包含的基本事件数：3（2,4,6）<br>
+- P(A) = 3/6 = 1/2
+</div>
+
+<div class="example">
+<b>例题2</b>：从一副扑克牌（54张）中抽一张，求抽到红桃的概率。<br><br>
+<b>解</b>：<br>
+- 总的基本事件数：54<br>
+- 红桃有13张<br>
+- P(A) = 13/54
+</div>
+
+<h2 class="subject">三、概率的基本公式</h2>
+
+<h3>1. 加法公式（"或"）</h3>
+<div class="formula">
+P(A∪B) = P(A) + P(B) - P(A∩B)
+</div>
+
+<div class="key">
+<b>特殊情况</b>：如果A和B互斥（不能同时发生），则：<br>
+P(A∪B) = P(A) + P(B)<br><br>
+<b>关键词</b>："或"、"至少满足一个"
+</div>
+
+<div class="example">
+<b>例题3</b>：掷一颗骰子，求掷出偶数或点数大于4的概率。<br><br>
+<b>解</b>：<br>
+- A = 偶数：{2,4,6}，P(A) = 3/6 = 1/2<br>
+- B = 点数>4：{5,6}，P(B) = 2/6 = 1/3<br>
+- A∩B = 偶数且>4：{6}，P(A∩B) = 1/6<br>
+- P(A∪B) = 1/2 + 1/3 - 1/6 = 2/3
+</div>
+
+<h3>2. 乘法公式（"且"）</h3>
+<div class="formula">
+P(A∩B) = P(A) · P(B|A)
+</div>
+
+<div class="key">
+<b>特殊情况</b>：如果A和B独立（互不影响），则：<br>
+P(A∩B) = P(A) · P(B)<br><br>
+<b>关键词</b>："且"、"都发生"、"连续几次"
+</div>
+
+<div class="example">
+<b>例题4</b>：掷两次硬币，求两次都是正面的概率。<br><br>
+<b>解</b>：<br>
+- 第一次正面：P(A) = 1/2<br>
+- 第二次正面：P(B) = 1/2<br>
+- 两次独立，所以 P(A∩B) = 1/2 × 1/2 = 1/4
+</div>
+
+<h2 class="subject">四、离散型随机变量</h2>
+
+<h3>1. 什么是随机变量？</h3>
+<div class="key">
+随机变量就是用数字表示随机试验的结果，通常用X、Y表示。<br><br>
+<b>例子</b>：掷一颗骰子，X = 掷出的点数，则X可以取1,2,3,4,5,6。
+</div>
+
+<h3>2. 分布列</h3>
+<table>
+<tr><th>X</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+<tr><td>P</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td></tr>
+</table>
+
+<div class="key">
+<b>性质</b>：所有概率加起来 = 1
+</div>
+
+<h2 class="subject">五、期望与方差</h2>
+
+<h3>1. 期望 E(X)（平均值）</h3>
+<div class="formula">
+E(X) = x₁p₁ + x₂p₂ + ... + xₙpₙ
+</div>
+
+<div class="key">
+就是每个结果乘以它的概率，加起来。
+</div>
+
+<div class="example">
+<b>例题5</b>：掷一颗骰子，求点数的期望。<br><br>
+<b>解</b>：<br>
+E(X) = 1×(1/6) + 2×(1/6) + 3×(1/6) + 4×(1/6) + 5×(1/6) + 6×(1/6)<br>
+= (1+2+3+4+5+6)/6 = 21/6 = 3.5
+</div>
+
+<h3>2. 方差 D(X)（波动大小）</h3>
+<div class="formula">
+D(X) = E(X²) - [E(X)]²
+</div>
+
+<div class="key">
+<b>步骤</b>：<br>
+1. 先算 E(X)（期望）<br>
+2. 再算 E(X²)（平方的期望）<br>
+3. 方差 = E(X²) - [E(X)]²<br><br>
+<b>意义</b>：方差越大，数据越分散；方差越小，越集中。
+</div>
+
+<div class="example">
+<b>例子</b>：<br><br>
+| X | 0 | 1 | 2 |<br>
+| P | 0.3 | 0.5 | 0.2 |<br><br>
+<b>算E(X)</b>：E(X) = 0×0.3 + 1×0.5 + 2×0.2 = 0.9<br><br>
+<b>算E(X²)</b>：E(X²) = 0²×0.3 + 1²×0.5 + 2²×0.2 = 1.3<br><br>
+<b>算D(X)</b>：D(X) = 1.3 - 0.9² = 1.3 - 0.81 = 0.49
+</div>
+
+<h2 class="subject">六、核心公式汇总</h2>
+
+<table>
+<tr><th>类型</th><th>公式</th></tr>
+<tr><td>古典概型</td><td>P(A) = 事件A的基本事件数 / 总基本事件数</td></tr>
+<tr><td>加法公式（或）</td><td>P(A∪B) = P(A) + P(B) - P(A∩B)</td></tr>
+<tr><td>乘法公式（且）</td><td>P(A∩B) = P(A) · P(B)（独立时）</td></tr>
+<tr><td>期望</td><td>E(X) = Σ xᵢpᵢ</td></tr>
+<tr><td>方差</td><td>D(X) = E(X²) - [E(X)]²</td></tr>
+</table>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body>
+</html>

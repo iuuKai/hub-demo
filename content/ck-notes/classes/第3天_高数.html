@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第3天 · 高数</h1>
+<div class="day-tag">极限的计算方法</div>
+
+<h2 class="subject">一、两个重要极限</h2>
+
+<h3>第一个重要极限</h3>
+<div class="formula">
+$\displaystyle\lim_{x \to 0} \frac{\sin x}{x} = 1$
+</div>
+<div class="key">
+<b>特点</b>：$\frac{0}{0}$ 型，分子是sin，分母和sin里面的变量相同<br>
+<b>推广形式</b>：$\displaystyle\lim_{\square \to 0} \frac{\sin \square}{\square} = 1$（方框里可以是任何趋近于0的表达式）<br>
+<b>记忆</b>：sin和下面的变量要"配套"
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $\displaystyle\lim_{x \to 0} \frac{\sin 3x}{2x}$<br>
+解：凑成重要极限的形式：<br>
+$\frac{\sin 3x}{2x} = \frac{\sin 3x}{3x} \cdot \frac{3}{2}$<br>
+当 $x \to 0$ 时，$3x \to 0$，所以 $\frac{\sin 3x}{3x} \to 1$<br>
+原式 = $1 \cdot \frac{3}{2} = \frac{3}{2}$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $\displaystyle\lim_{x \to 0} \frac{\tan x}{x}$<br>
+解：$\tan x = \frac{\sin x}{\cos x}$<br>
+原式 = $\displaystyle\lim_{x \to 0} \frac{\sin x}{x \cos x} = \lim_{x \to 0} \frac{\sin x}{x} \cdot \frac{1}{\cos x} = 1 \cdot \frac{1}{1} = 1$
+</div>
+
+<h3>第二个重要极限</h3>
+<div class="formula">
+$\displaystyle\lim_{x \to \infty} (1 + \frac{1}{x})^x = e$<br><br>
+等价形式：$\displaystyle\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e$
+</div>
+<div class="key">
+<b>特点</b>：$1^\infty$ 型（底数趋近于1，指数趋近于无穷）<br>
+<b>推广形式</b>：$\displaystyle\lim_{\square \to \infty} (1 + \frac{1}{\square})^{\square} = e$<br>
+<b>记忆</b>：括号里是"1+小量"，指数和小量互为倒数
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $\displaystyle\lim_{x \to \infty} (1 + \frac{3}{x})^x$<br>
+解：凑成重要极限形式：<br>
+$(1 + \frac{3}{x})^x = [(1 + \frac{1}{x/3})^{x/3}]^3$<br>
+当 $x \to \infty$ 时，$x/3 \to \infty$，所以 $(1 + \frac{1}{x/3})^{x/3} \to e$<br>
+原式 = $e^3$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $\displaystyle\lim_{x \to 0} (1 + 2x)^{\frac{1}{x}}$<br>
+解：$(1 + 2x)^{\frac{1}{x}} = [(1 + 2x)^{\frac{1}{2x}}]^2$<br>
+当 $x \to 0$ 时，$2x \to 0$，所以 $(1 + 2x)^{\frac{1}{2x}} \to e$<br>
+原式 = $e^2$
+</div>
+
+<h2 class="subject">二、等价无穷小替换</h2>
+<div class="key">
+<b>定义</b>：当 $x \to 0$ 时，如果两个无穷小量的比值极限为1，则称它们是等价无穷小。<br><br>
+<b>常用等价无穷小（$x \to 0$ 时）</b>：<br>
+$\sin x \sim x$<br>
+$\tan x \sim x$<br>
+$\arcsin x \sim x$<br>
+$\arctan x \sim x$<br>
+$1 - \cos x \sim \frac{1}{2}x^2$<br>
+$e^x - 1 \sim x$<br>
+$\ln(1+x) \sim x$<br>
+$(1+x)^\alpha - 1 \sim \alpha x$<br><br>
+<b>使用条件</b>：<br>
+① 只能在乘除关系中替换，加减关系中不能随便替换<br>
+② 必须是 $x \to 0$ 的情况<br>
+③ 替换后极限要存在
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $\displaystyle\lim_{x \to 0} \frac{\tan 2x}{\sin 3x}$<br>
+解：当 $x \to 0$ 时，$\tan 2x \sim 2x$，$\sin 3x \sim 3x$<br>
+原式 = $\displaystyle\lim_{x \to 0} \frac{2x}{3x} = \frac{2}{3}$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $\displaystyle\lim_{x \to 0} \frac{1 - \cos x}{x^2}$<br>
+解：当 $x \to 0$ 时，$1 - \cos x \sim \frac{1}{2}x^2$<br>
+原式 = $\displaystyle\lim_{x \to 0} \frac{\frac{1}{2}x^2}{x^2} = \frac{1}{2}$
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $\displaystyle\lim_{x \to 0} \frac{e^{2x} - 1}{\ln(1+3x)}$<br>
+解：当 $x \to 0$ 时，$e^{2x} - 1 \sim 2x$，$\ln(1+3x) \sim 3x$<br>
+原式 = $\displaystyle\lim_{x \to 0} \frac{2x}{3x} = \frac{2}{3}$
+</div>
+
+<h2 class="subject">三、极限的四则运算法则</h2>
+<div class="key">
+如果 $\lim f(x) = A$，$\lim g(x) = B$，则：<br>
+① $\lim [f(x) \pm g(x)] = A \pm B$<br>
+② $\lim [f(x) \cdot g(x)] = A \cdot B$<br>
+③ $\lim \frac{f(x)}{g(x)} = \frac{A}{B}$（$B \neq 0$）<br>
+④ $\lim [c \cdot f(x)] = c \cdot A$（c为常数）<br>
+⑤ $\lim [f(x)]^n = A^n$
+</div>
+
+<h2 class="subject">四、无穷小量的性质</h2>
+<div class="key">
+<b>无穷小量</b>：极限为0的量<br>
+<b>无穷大量</b>：绝对值无限增大的量<br><br>
+<b>性质</b>：<br>
+① 有限个无穷小的和仍是无穷小<br>
+② 有限个无穷小的乘积仍是无穷小<br>
+③ 无穷小与有界函数的乘积仍是无穷小<br>
+④ 无穷小的倒数是无穷大（非零无穷小）
+</div>
+
+<div class="example">
+<b>例题</b>：求 $\displaystyle\lim_{x \to \infty} \frac{\sin x}{x}$<br>
+解：$\sin x$ 是有界函数（$|\sin x| \leq 1$），$\frac{1}{x}$ 当 $x \to \infty$ 时是无穷小<br>
+有界函数 × 无穷小 = 无穷小<br>
+所以极限 = 0
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body></html>

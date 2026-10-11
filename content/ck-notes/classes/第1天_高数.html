@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+.step { margin: 4px 0; padding-left: 12px; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第1天 · 高数</h1>
+<div class="day-tag">函数的概念</div>
+
+<h2 class="subject">一、函数的定义</h2>
+<p>设x和y是两个变量，D是一个给定的数集。如果对于每个数 $x \in D$，变量y按照一定法则总有确定的数值和它对应，则称y是x的函数，记作 $y=f(x)$。</p>
+<div class="key">
+<b>定义域</b>：自变量x的取值范围D<br>
+<b>值域</b>：函数值y的集合<br>
+<b>对应法则</b>：f表示从x到y的对应关系
+</div>
+
+<h2 class="subject">二、求定义域（核心考点）</h2>
+<div class="key">
+<b>定义域三大规则（必须同时满足）：</b><br>
+① 分母 ≠ 0<br>
+② 偶次根号内 ≥ 0（$\sqrt{}$ 里面的数必须大于等于0）<br>
+③ 对数真数 > 0（$\ln()$ 或 $\log()$ 里面的数必须大于0）<br><br>
+<b>多个条件同时存在时，取交集（同时满足所有条件）</b>
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $y = \frac{1}{x+5}$ 的定义域。<br>
+解：分母不能为0，即 $x+5 \neq 0$，所以 $x \neq -5$。<br>
+定义域：$(-\infty, -5) \cup (-5, +\infty)$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $y = \sqrt{3-x}$ 的定义域。<br>
+解：根号内必须大于等于0，即 $3-x \geq 0$，解得 $x \leq 3$。<br>
+定义域：$(-\infty, 3]$
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $y = \ln(x-2)$ 的定义域。<br>
+解：对数真数必须大于0，即 $x-2 > 0$，解得 $x > 2$。<br>
+定义域：$(2, +\infty)$
+</div>
+
+<div class="example">
+<b>例题4</b>：求 $y = \sqrt{x+1} + \frac{1}{x-2}$ 的定义域。<br>
+解：需要同时满足两个条件：<br>
+① 根号内：$x+1 \geq 0$，即 $x \geq -1$<br>
+② 分母：$x-2 \neq 0$，即 $x \neq 2$<br>
+取交集：$x \geq -1$ 且 $x \neq 2$<br>
+定义域：$[-1, 2) \cup (2, +\infty)$
+</div>
+
+<div class="example">
+<b>例题5</b>：求 $y = \sqrt{x-4} + \ln(6-x)$ 的定义域。<br>
+解：需要同时满足：<br>
+① 根号内：$x-4 \geq 0$，即 $x \geq 4$<br>
+② 真数：$6-x > 0$，即 $x < 6$<br>
+取交集：$4 \leq x < 6$<br>
+定义域：$[4, 6)$
+</div>
+
+<h2 class="subject">三、求函数值</h2>
+<p>将自变量的值代入函数表达式，计算出对应的函数值。</p>
+
+<div class="example">
+<b>例题1</b>：已知 $f(x) = 2x^2 + x - 4$，求 $f(1)$ 和 $f(-2)$。<br>
+解：<br>
+$f(1) = 2(1)^2 + 1 - 4 = 2 + 1 - 4 = -1$<br>
+$f(-2) = 2(-2)^2 + (-2) - 4 = 2(4) - 2 - 4 = 8 - 2 - 4 = 2$
+</div>
+
+<div class="example">
+<b>例题2</b>：已知 $f(x) = \frac{x^2-1}{x+1}$，求 $f(2)$ 和定义域。<br>
+解：<br>
+$f(2) = \frac{2^2-1}{2+1} = \frac{4-1}{3} = \frac{3}{3} = 1$<br>
+定义域：分母 $x+1 \neq 0$，即 $x \neq -1$
+</div>
+
+<div class="example">
+<b>例题3</b>：已知 $f(x) = 3x + 2$，求 $f(f(1))$ 的值。<br>
+解：先算内层 $f(1) = 3(1) + 2 = 5$<br>
+再算外层 $f(f(1)) = f(5) = 3(5) + 2 = 17$
+</div>
+
+<div class="example">
+<b>例题4</b>：已知 $f(x) = \frac{x^2-4}{x-2}$，求：(a) 定义域，(b) $f(3)$，(c) $f(0)$<br>
+解：<br>
+(a) 分母 $x-2 \neq 0$，即 $x \neq 2$<br>
+(b) $f(3) = \frac{3^2-4}{3-2} = \frac{9-4}{1} = 5$<br>
+(c) $f(0) = \frac{0^2-4}{0-2} = \frac{-4}{-2} = 2$
+</div>
+
+<h2 class="subject">四、函数的表示方法</h2>
+<div class="key">
+① 解析法（公式法）：用数学表达式表示，如 $f(x)=x^2+1$<br>
+② 表格法：用表格列出x和y的对应值<br>
+③ 图像法：用坐标系中的曲线表示
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body></html>

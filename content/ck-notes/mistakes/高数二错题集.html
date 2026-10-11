@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>高数（二）错题集</title>
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; }
+h2 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 30px; }
+h3 { color: #154360; margin-top: 20px; }
+.meta { background: #eaf2f8; border-left: 4px solid #2980b9; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.meta p { margin: 4px 0; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 13px; margin-right: 6px; }
+.tag-wrong { background: #fadbd8; color: #c0392b; }
+.tag-right { background: #d5f5e3; color: #1e8449; }
+.tag-reason { background: #fef9e7; color: #7d6608; }
+.tag-kp { background: #d6eaf8; color: #1a5276; }
+.status-notyet { color: #e67e22; font-weight: bold; }
+.status-done { color: #27ae60; font-weight: bold; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #bbb; padding: 8px 12px; text-align: left; }
+th { background: #eaf2f8; }
+.note { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula-box { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<h1>高数（二）错题集</h1>
+<p style="text-align:center;color:#7f8c8d;">持续更新 · 每周日重做未掌握错题 · 高数正确率较高，同时收录薄弱点</p>
+
+<h2>错题列表</h2>
+
+<h3>错题 #001（薄弱点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-09-02</p>
+<p><b>类型：</b>因式分解</p>
+<p><b>题目：</b>将 $3x^2 - 12x + 9$ 因式分解</p>
+<p><span class="tag tag-wrong">错误答案</span>只能分解到 $3(x^2 - 4x + 3)$</p>
+<p><span class="tag tag-right">正确答案</span>$3(x - 1)(x - 3)$</p>
+<p><span class="tag tag-reason">错误原因</span>十字相乘法不熟练，$x^2 - 4x + 3$ 可以继续分解</p>
+<p><span class="tag tag-kp">相关知识点</span>因式分解——十字相乘法</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="note">
+<b>知识点补充：</b><br>
+十字相乘法：$x^2 + (p+q)x + pq = (x+p)(x+q)$<br>
+- $x^2 - 4x + 3$：找两个数，乘积=3，和=-4 → -1 和 -3<br>
+- 所以 $x^2 - 4x + 3 = (x-1)(x-3)$<br>
+- 最终：$3x^2 - 12x + 9 = 3(x-1)(x-3)$
+</div>
+
+<h3>错题 #002（薄弱点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-09-02</p>
+<p><b>类型：</b>导数应用——切线方程</p>
+<p><b>题目：</b>求曲线在某点的切线方程</p>
+<p><span class="tag tag-wrong">错误答案</span>不记得点斜式公式</p>
+<p><span class="tag tag-right">正确答案</span>点斜式 $y - y_0 = f'(x_0)(x - x_0)$</p>
+<p><span class="tag tag-reason">错误原因</span>高中解析几何知识遗忘，点斜式公式不记得</p>
+<p><span class="tag tag-kp">相关知识点</span>导数的几何意义——切线斜率；直线的点斜式方程</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="note">
+<b>知识点补充：</b><br>
+- 导数的几何意义：$f'(x_0)$ 是曲线 $y=f(x)$ 在点 $(x_0, f(x_0))$ 处的切线斜率<br>
+- 点斜式方程：$y - y_0 = k(x - x_0)$，其中 $k$ 是斜率，$(x_0, y_0)$ 是直线上一点<br>
+- 解题步骤：① 求导 $f'(x)$ ② 代入 $x_0$ 得斜率 $k=f'(x_0)$ ③ 用点斜式写方程
+</div>
+
+<h3>错题 #003（注意点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-09-05</p>
+<p><b>类型：</b>不定积分——公式记忆</p>
+<p><b>题目：</b>不定积分计算</p>
+<p><span class="tag tag-wrong">错误答案</span>需要翻公式才能做</p>
+<p><span class="tag tag-right">正确答案</span>应熟练记住核心积分公式</p>
+<p><span class="tag tag-reason">错误原因</span>积分公式还没记熟，复杂公式容易忘</p>
+<p><span class="tag tag-kp">相关知识点</span>基本积分公式表</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="formula-box">
+<b>必背核心积分公式（10个）：</b><br>
+1. $\int k \, dx = kx + C$<br>
+2. $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)$<br>
+3. $\int \frac{1}{x} \, dx = \ln|x| + C$<br>
+4. $\int e^x \, dx = e^x + C$<br>
+5. $\int a^x \, dx = \frac{a^x}{\ln a} + C$<br>
+6. $\int \sin x \, dx = -\cos x + C$<br>
+7. $\int \cos x \, dx = \sin x + C$<br>
+8. $\int \sec^2 x \, dx = \tan x + C$<br>
+9. $\int \csc^2 x \, dx = -\cot x + C$<br>
+10. $\int \frac{1}{1+x^2} \, dx = \arctan x + C$
+</div>
+
+<h3>错题 #004（注意点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-09-05</p>
+<p><b>类型：</b>不定积分——三角函数</p>
+<p><b>题目：</b>涉及 $\sec$、$\cot$、$\csc$ 的积分</p>
+<p><span class="tag tag-wrong">错误答案</span>对 $\sec$、$\cot$、$\csc$ 不熟悉</p>
+<p><span class="tag tag-right">正确答案</span>需掌握 $\sec=1/\cos$, $\csc=1/\sin$, $\cot=1/\tan$</p>
+<p><span class="tag tag-reason">错误原因</span>高中三角函数知识遗忘，$\sec/\csc/\cot$ 不熟悉</p>
+<p><span class="tag tag-kp">相关知识点</span>三角函数定义、三角恒等式</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="note">
+<b>三角函数速成卡：</b><br>
+- $\sec x = \frac{1}{\cos x}$（正割）<br>
+- $\csc x = \frac{1}{\sin x}$（余割）<br>
+- $\cot x = \frac{\cos x}{\sin x} = \frac{1}{\tan x}$（余切）<br>
+- 恒等式：$1 + \tan^2 x = \sec^2 x$，$1 + \cot^2 x = \csc^2 x$<br>
+- 求导：$(\tan x)' = \sec^2 x$，$(\cot x)' = -\csc^2 x$
+</div>
+
+<h3>错题 #005（薄弱点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-09-15</p>
+<p><b>类型：</b>多元函数——复合函数求偏导</p>
+<p><b>题目：</b>求 $z = e^{xy}$ 的一阶偏导数</p>
+<p><span class="tag tag-wrong">错误答案</span>$\frac{\partial z}{\partial x} = e^y$，$\frac{\partial z}{\partial y} = e^x$</p>
+<p><span class="tag tag-right">正确答案</span>$\frac{\partial z}{\partial x} = y e^{xy}$，$\frac{\partial z}{\partial y} = x e^{xy}$</p>
+<p><span class="tag tag-reason">错误原因</span>复合函数求导漏乘内层函数的导数</p>
+<p><span class="tag tag-kp">相关知识点</span>多元复合函数求偏导——链式法则</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="note">
+<b>知识点补充：</b><br>
+复合函数求导（链式法则）：<br>
+- $z = e^{xy}$ 对x求偏导：先对 $e^u$ 求导得 $e^u$，再乘 $u=xy$ 对x的导数 $y$<br>
+- 所以：$\frac{\partial z}{\partial x} = e^{xy} \cdot y = y e^{xy}$<br>
+- 同理：$\frac{\partial z}{\partial y} = e^{xy} \cdot x = x e^{xy}$<br>
+<b>口诀</b>：外层求导 × 内层求导
+</div>
+
+<h3>错题 #006（薄弱点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-09-15</p>
+<p><b>类型：</b>多元函数——三角函数求导符号</p>
+<p><b>题目：</b>求 $z = x^2 y + \sin y$ 对y的偏导数</p>
+<p><span class="tag tag-wrong">错误答案</span>$\frac{\partial z}{\partial y} = x^2 - \cos y$</p>
+<p><span class="tag tag-right">正确答案</span>$\frac{\partial z}{\partial y} = x^2 + \cos y$</p>
+<p><span class="tag tag-reason">错误原因</span>三角函数求导公式记错，$\sin$ 的导数符号搞反了</p>
+<p><span class="tag tag-kp">相关知识点</span>基本求导公式——三角函数</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="note">
+<b>知识点补充：</b><br>
+三角函数求导公式（必背）：<br>
+- $(\sin x)' = \cos x$（正→余，正号）<br>
+- $(\cos x)' = -\sin x$（余→正，负号）<br>
+对比记忆：$\sin$ 求导变 $\cos$，$\cos$ 求导变 $-\sin$
+</div>
+
+<h2>薄弱知识点汇总</h2>
+<table>
+<tr><th>知识点</th><th>类型</th><th>掌握程度</th></tr>
+<tr><td>因式分解（十字相乘法）</td><td>薄弱点</td><td>🔄 需加强</td></tr>
+<tr><td>点斜式方程/切线方程</td><td>薄弱点</td><td>🔄 需加强</td></tr>
+<tr><td>基本积分公式记忆</td><td>注意点</td><td>🔄 需加强</td></tr>
+<tr><td>三角函数（sec/csc/cot）</td><td>注意点</td><td>🔄 需加强</td></tr>
+<tr><td>复合函数求偏导（链式法则）</td><td>薄弱点</td><td>🔄 需加强</td></tr>
+<tr><td>三角函数求导符号</td><td>薄弱点</td><td>🔄 需加强</td></tr>
+</table>
+
+<h2>已掌握的知识点（保持）</h2>
+<div class="note">
+- ✅ 函数定义域、函数值<br>
+- ✅ 极限计算（代入法、因式分解约分、分段函数左右极限）<br>
+- ✅ 导数计算（基本公式、四则运算）<br>
+- ✅ 导数应用（单调区间、极值）<br>
+- ✅ 不定积分（直接积分、凑微分、分部积分）——方法已掌握，公式需记熟
+</div>
+
+<h2>复习记录</h2>
+<table>
+<tr><th>日期</th><th>复习内容</th><th>结果</th></tr>
+<tr><td>（待补充）</td><td></td><td></td></tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+[
+	{
+		"source": "../../content/ck-notes",
+		"target": "./.temp-content"
+	}
+]

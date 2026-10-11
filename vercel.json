@@ -28,6 +28,18 @@
 		{
 			"source": "/demo-exam-ai/:path*",
 			"destination": "/apps/demo-exam-ai/dist/index.html"
+		},
+		{
+			"source": "/ck-notes(/?)",
+			"destination": "/apps/ck-notes/dist/index.html"
+		},
+		{
+			"source": "/ck-notes/:path*.:ext",
+			"destination": "/apps/ck-notes/dist/:path*.:ext"
+		},
+		{
+			"source": "/ck-notes/:path*",
+			"destination": "/apps/ck-notes/dist/index.html"
 		}
 	]
 }

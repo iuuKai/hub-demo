@@ -1,0 +1,18 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"extends": ["//"],
+	"tasks": {
+		"build": {
+			"inputs": [
+				"../../content/ck-notes/**",
+				"src/**",
+				"scripts/**",
+				"index.html",
+				"vite.config.ts",
+				"content-plugin.ts",
+				"tsconfig*.json",
+				"package.json"
+			]
+		}
+	}
+}

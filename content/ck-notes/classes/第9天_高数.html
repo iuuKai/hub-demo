@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+.step { margin: 4px 0; padding-left: 12px; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第9天 · 高数二</h1>
+<div class="day-tag">多元函数微分学</div>
+
+<h2 class="subject">一、多元函数的基本概念</h2>
+
+<h3>什么是多元函数？</h3>
+<p>一元函数：$y = f(x)$，只有一个自变量</p>
+<p>多元函数：$z = f(x, y)$，有两个或更多自变量</p>
+
+<div class="key">
+<b>例子</b>：<br>
+- 长方形面积：$S = xy$（长x，宽y）<br>
+- 长方体体积：$V = xyz$（长x，宽y，高z）
+</div>
+
+<h3>二元函数的定义</h3>
+<p>设D是平面上的一个点集，如果对于每个点 $(x, y) \in D$，变量z按照一定法则总有确定的值和它对应，则称z是x, y的二元函数，记作 $z = f(x, y)$。</p>
+
+<h2 class="subject">二、偏导数</h2>
+
+<h3>什么是偏导数？</h3>
+<p>对多元函数求导时，<b>只对一个变量求导，其他变量当作常数</b>。</p>
+
+<div class="example">
+<b>例子</b>：$z = x^2 + 3xy + y^2$<br><br>
+对x求偏导（把y当常数）：<br>
+$\frac{\partial z}{\partial x} = 2x + 3y$<br><br>
+对y求偏导（把x当常数）：<br>
+$\frac{\partial z}{\partial y} = 3x + 2y$
+</div>
+
+<h3>偏导数的记号</h3>
+<table>
+<tr><th>记号</th><th>读法</th></tr>
+<tr><td>$\frac{\partial z}{\partial x}$</td><td>z对x的偏导</td></tr>
+<tr><td>$\frac{\partial z}{\partial y}$</td><td>z对y的偏导</td></tr>
+<tr><td>$f_x(x, y)$</td><td>f对x的偏导</td></tr>
+<tr><td>$f_y(x, y)$</td><td>f对y的偏导</td></tr>
+</table>
+
+<div class="key">
+<b>解题方法</b>：求偏导和一元函数求导完全一样，只是把其他变量当常数。
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $z = x^3 + y^3 - 2xy$ 的偏导数。<br>
+解：<br>
+对x求偏导（y当常数）：<br>
+$\frac{\partial z}{\partial x} = 3x^2 - 2y$<br><br>
+对y求偏导（x当常数）：<br>
+$\frac{\partial z}{\partial y} = 3y^2 - 2x$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $z = x^2 \sin y$ 的偏导数。<br>
+解：<br>
+对x求偏导（y当常数，$\sin y$是常数）：<br>
+$\frac{\partial z}{\partial x} = 2x \sin y$<br><br>
+对y求偏导（x当常数，$x^2$是常数）：<br>
+$\frac{\partial z}{\partial y} = x^2 \cos y$
+</div>
+
+<h2 class="subject">三、二阶偏导数</h2>
+<p>对一阶偏导再求一次偏导，就是二阶偏导。</p>
+
+<table>
+<tr><th>二阶偏导</th><th>意思</th></tr>
+<tr><td>$\frac{\partial^2 z}{\partial x^2}$</td><td>对x求两次偏导</td></tr>
+<tr><td>$\frac{\partial^2 z}{\partial y^2}$</td><td>对y求两次偏导</td></tr>
+<tr><td>$\frac{\partial^2 z}{\partial x \partial y}$</td><td>先对x求偏导，再对y求偏导</td></tr>
+<tr><td>$\frac{\partial^2 z}{\partial y \partial x}$</td><td>先对y求偏导，再对x求偏导</td></tr>
+</table>
+
+<div class="key">
+<b>重要结论</b>：如果二阶混合偏导连续，则 $\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial^2 z}{\partial y \partial x}$（和求导顺序无关）
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $z = x^2 y + 3xy^3$ 的二阶偏导数。<br>
+解：<br>
+先求一阶偏导：<br>
+$\frac{\partial z}{\partial x} = 2xy + 3y^3$<br>
+$\frac{\partial z}{\partial y} = x^2 + 9xy^2$<br><br>
+再求二阶偏导：<br>
+$\frac{\partial^2 z}{\partial x^2} = 2y$<br>
+$\frac{\partial^2 z}{\partial y^2} = 18xy$<br>
+$\frac{\partial^2 z}{\partial x \partial y} = 2x + 9y^2$<br>
+$\frac{\partial^2 z}{\partial y \partial x} = 2x + 9y^2$
+</div>
+
+<h2 class="subject">四、全微分</h2>
+
+<h3>什么是全微分？</h3>
+<p>如果函数 $z = f(x, y)$ 的全增量可以表示为 $\Delta z = A\Delta x + B\Delta y + o(\rho)$，则称函数可微，全微分为：</p>
+
+<div class="formula">
+$dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy$
+</div>
+
+<div class="example">
+<b>例题4</b>：求 $z = x^2 y + y^2$ 的全微分。<br>
+解：<br>
+先求偏导：<br>
+$\frac{\partial z}{\partial x} = 2xy$<br>
+$\frac{\partial z}{\partial y} = x^2 + 2y$<br><br>
+全微分：<br>
+$dz = 2xy \, dx + (x^2 + 2y) \, dy$
+</div>
+
+<h2 class="subject">五、核心公式汇总</h2>
+
+<table>
+<tr><th>类型</th><th>公式</th></tr>
+<tr><td>对x求偏导</td><td>把y当常数，对x求导</td></tr>
+<tr><td>对y求偏导</td><td>把x当常数，对y求导</td></tr>
+<tr><td>全微分</td><td>$dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy$</td></tr>
+<tr><td>二阶混合偏导</td><td>连续时与顺序无关</td></tr>
+</table>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body>
+</html>

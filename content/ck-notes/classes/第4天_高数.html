@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第4天 · 高数</h1>
+<div class="day-tag">导数的概念与求导公式</div>
+
+<h2 class="subject">一、导数的概念</h2>
+<div class="key">
+<b>导数的定义</b>：设函数 $y=f(x)$ 在点 $x_0$ 的某邻域内有定义，当自变量 $x$ 在 $x_0$ 处取得增量 $\Delta x$ 时，相应地函数取得增量 $\Delta y = f(x_0+\Delta x) - f(x_0)$。如果 $\frac{\Delta y}{\Delta x}$ 当 $\Delta x \to 0$ 时的极限存在，则称函数 $f(x)$ 在点 $x_0$ 处可导，这个极限叫做 $f(x)$ 在点 $x_0$ 处的导数。
+</div>
+<div class="formula">
+$f'(x_0) = \displaystyle\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}$
+</div>
+<div class="key">
+<b>导数的几何意义</b>：$f'(x_0)$ 表示曲线 $y=f(x)$ 在点 $(x_0, f(x_0))$ 处的切线的斜率。<br><br>
+<b>切线方程</b>：$y - f(x_0) = f'(x_0)(x - x_0)$（点斜式）<br><br>
+<b>法线方程</b>：$y - f(x_0) = -\frac{1}{f'(x_0)}(x - x_0)$（法线与切线垂直，斜率为负倒数）<br><br>
+<b>可导与连续的关系</b>：<br>
+① 可导一定连续<br>
+② 连续不一定可导（如 $y=|x|$ 在 $x=0$ 处连续但不可导）<br>
+③ 不连续一定不可导
+</div>
+
+<h2 class="subject">二、基本求导公式（必须背熟）</h2>
+<div class="formula">
+① $(C)' = 0$（常数的导数为0）<br><br>
+② $(x^n)' = nx^{n-1}$（幂函数：指数拿下来当系数，指数减1）<br><br>
+③ $(ax)' = a$（一次函数的导数是系数a）<br><br>
+④ $(e^x)' = e^x$（e的x次方导数不变）<br><br>
+⑤ $(a^x)' = a^x \ln a$（一般指数函数）<br><br>
+⑥ $(\ln x)' = \frac{1}{x}$（自然对数）<br><br>
+⑦ $(\log_a x)' = \frac{1}{x \ln a}$（一般对数）<br><br>
+⑧ $(\sin x)' = \cos x$（正弦导数是余弦）<br><br>
+⑨ $(\cos x)' = -\sin x$（余弦导数是负正弦，注意负号！）<br><br>
+⑩ $(\tan x)' = \sec^2 x = \frac{1}{\cos^2 x}$<br><br>
+⑪ $(\cot x)' = -\csc^2 x = -\frac{1}{\sin^2 x}$
+</div>
+
+<div class="example">
+<b>例题</b>：求下列函数的导数<br>
+(1) $y = 5$（常数）→ $y' = 0$<br>
+(2) $y = x^3$ → $y' = 3x^{3-1} = 3x^2$<br>
+(3) $y = x^{10}$ → $y' = 10x^9$<br>
+(4) $y = \sqrt{x} = x^{\frac{1}{2}}$ → $y' = \frac{1}{2}x^{\frac{1}{2}-1} = \frac{1}{2}x^{-\frac{1}{2}} = \frac{1}{2\sqrt{x}}$<br>
+(5) $y = \frac{1}{x} = x^{-1}$ → $y' = -1 \cdot x^{-1-1} = -x^{-2} = -\frac{1}{x^2}$<br>
+(6) $y = 3x$ → $y' = 3$<br>
+(7) $y = \sin x$ → $y' = \cos x$<br>
+(8) $y = \cos x$ → $y' = -\sin x$
+</div>
+
+<h2 class="subject">三、求导四则运算法则</h2>
+<div class="key">
+设 $u=u(x)$，$v=v(x)$ 都可导，则：<br><br>
+① 和差：$(u \pm v)' = u' \pm v'$（和差的导数等于导数的和差）<br><br>
+② 数乘：$(Cu)' = Cu'$（常数可以提出来）<br><br>
+③ 乘法：$(uv)' = u'v + uv'$（前导后不导 + 前不导后导）<br><br>
+④ 除法：$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$（上导下不导 - 上不导下导，除以下面平方）<br>
+（除法口诀：分子导数乘分母 - 分子乘分母导数，再除以分母平方）
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $y = x^2 - 2x + 5$ 的导数<br>
+解：$y' = (x^2)' - (2x)' + (5)' = 2x - 2 + 0 = 2x - 2$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $y = (2x+1)(x^2-3)$ 的导数<br>
+解：用乘法法则，设 $u=2x+1$，$v=x^2-3$<br>
+$u' = 2$，$v' = 2x$<br>
+$y' = u'v + uv' = 2(x^2-3) + (2x+1)(2x)$<br>
+$= 2x^2 - 6 + 4x^2 + 2x = 6x^2 + 2x - 6$
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $y = \frac{x+1}{x-1}$ 的导数<br>
+解：用除法法则，设 $u=x+1$，$v=x-1$<br>
+$u' = 1$，$v' = 1$<br>
+$y' = \frac{u'v - uv'}{v^2} = \frac{1 \cdot (x-1) - (x+1) \cdot 1}{(x-1)^2}$<br>
+$= \frac{x-1-x-1}{(x-1)^2} = \frac{-2}{(x-1)^2}$
+</div>
+
+<h2 class="subject">四、复合函数求导（链式法则）</h2>
+<div class="key">
+<b>法则</b>：设 $y=f(u)$，$u=g(x)$，则复合函数 $y=f(g(x))$ 的导数为：<br>
+$y' = f'(u) \cdot g'(x)$（外层导数 × 内层导数）<br><br>
+<b>记忆</b>：从外到内一层层求导，像剥洋葱一样，每层导数相乘<br><br>
+<b>步骤</b>：<br>
+① 先设中间变量u，把复合函数拆成外层和内层<br>
+② 分别求外层导数和内层导数<br>
+③ 相乘，最后把u换回x的表达式
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $y = \sin(3x)$ 的导数<br>
+解：设 $u = 3x$，则 $y = \sin u$<br>
+外层导数：$(\sin u)' = \cos u$<br>
+内层导数：$(3x)' = 3$<br>
+$y' = \cos u \cdot 3 = 3\cos(3x)$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $y = (2x+1)^3$ 的导数<br>
+解：设 $u = 2x+1$，则 $y = u^3$<br>
+外层导数：$(u^3)' = 3u^2$<br>
+内层导数：$(2x+1)' = 2$<br>
+$y' = 3u^2 \cdot 2 = 6(2x+1)^2$
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $y = e^{x^2}$ 的导数<br>
+解：设 $u = x^2$，则 $y = e^u$<br>
+外层导数：$(e^u)' = e^u$<br>
+内层导数：$(x^2)' = 2x$<br>
+$y' = e^u \cdot 2x = 2x e^{x^2}$
+</div>
+
+<div class="example">
+<b>例题4</b>：求 $y = \ln(2x+1)$ 的导数<br>
+解：设 $u = 2x+1$，则 $y = \ln u$<br>
+外层导数：$(\ln u)' = \frac{1}{u}$<br>
+内层导数：$(2x+1)' = 2$<br>
+$y' = \frac{1}{u} \cdot 2 = \frac{2}{2x+1}$
+</div>
+
+<h2 class="subject">五、高阶导数</h2>
+<div class="key">
+<b>二阶导数</b>：对一阶导数再求导，记作 $y''$ 或 $f''(x)$ 或 $\frac{d^2y}{dx^2}$<br>
+<b>n阶导数</b>：对函数连续求n次导，记作 $y^{(n)}$ 或 $f^{(n)}(x)$<br><br>
+例：$y = x^3$<br>
+$y' = 3x^2$（一阶导数）<br>
+$y'' = 6x$（二阶导数）<br>
+$y''' = 6$（三阶导数）<br>
+$y^{(4)} = 0$（四阶导数）
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body></html>

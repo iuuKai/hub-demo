@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第2天 · 高数</h1>
+<div class="day-tag">极限的概念与基本求法</div>
+
+<h2 class="subject">一、极限的直观概念</h2>
+<p>当自变量x无限趋近于某个常数 $x_0$（但不等于 $x_0$）时，函数 $f(x)$ 无限趋近于一个确定的常数A，则称A为函数 $f(x)$ 当 $x \to x_0$ 时的极限，记作：</p>
+<div class="formula">
+$\displaystyle\lim_{x \to x_0} f(x) = A$
+</div>
+<div class="key">
+<b>关键点：</b><br>
+① x趋近于 $x_0$，但 $x \neq x_0$（极限与函数在该点是否有定义无关）<br>
+② "无限趋近"意味着要多近有多近<br>
+③ 极限是一个确定的常数
+</div>
+
+<h2 class="subject">二、左极限和右极限</h2>
+<div class="key">
+<b>左极限</b>：x从 $x_0$ 的左侧（小于 $x_0$ 的方向）趋近于 $x_0$，记作 $\displaystyle\lim_{x \to x_0^-} f(x)$<br><br>
+<b>右极限</b>：x从 $x_0$ 的右侧（大于 $x_0$ 的方向）趋近于 $x_0$，记作 $\displaystyle\lim_{x \to x_0^+} f(x)$<br><br>
+<b>极限存在的充要条件</b>：左极限 = 右极限<br>
+$\displaystyle\lim_{x \to x_0} f(x)$ 存在 $\iff \displaystyle\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} f(x)$
+</div>
+
+<div class="example">
+<b>例题</b>：设 $f(x) = \begin{cases} 2x, & x < 1 \\ x+1, & x \geq 1 \end{cases}$，求 $\displaystyle\lim_{x \to 1} f(x)$<br>
+解：<br>
+左极限：$\displaystyle\lim_{x \to 1^-} f(x) = \lim_{x \to 1^-} 2x = 2(1) = 2$<br>
+右极限：$\displaystyle\lim_{x \to 1^+} f(x) = \lim_{x \to 1^+} (x+1) = 1+1 = 2$<br>
+因为左极限 = 右极限 = 2，所以 $\displaystyle\lim_{x \to 1} f(x) = 2$
+</div>
+
+<div class="example">
+<b>例题</b>：设 $f(x) = \begin{cases} x+3, & x < 1 \\ 2x+1, & x \geq 1 \end{cases}$，求 $\displaystyle\lim_{x \to 1} f(x)$<br>
+解：<br>
+左极限：$\displaystyle\lim_{x \to 1^-} f(x) = 1+3 = 4$<br>
+右极限：$\displaystyle\lim_{x \to 1^+} f(x) = 2(1)+1 = 3$<br>
+因为左极限 ≠ 右极限，所以 $\displaystyle\lim_{x \to 1} f(x)$ 不存在
+</div>
+
+<h2 class="subject">三、直接代入法求极限</h2>
+<div class="key">
+如果函数 $f(x)$ 在 $x_0$ 处连续（初等函数在定义域内都连续），则：<br>
+$\displaystyle\lim_{x \to x_0} f(x) = f(x_0)$<br><br>
+即直接把 $x_0$ 代入函数表达式计算即可。<br>
+适用条件：代入后分母不为0，表达式有意义。
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $\displaystyle\lim_{x \to 2} (x^2 + 3x - 4)$<br>
+解：直接代入 $x=2$：<br>
+$2^2 + 3(2) - 4 = 4 + 6 - 4 = 6$<br>
+所以极限 = 6
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $\displaystyle\lim_{x \to 1} \frac{2x+3}{x+2}$<br>
+解：代入 $x=1$，分母 $1+2=3 \neq 0$，可以直接代入：<br>
+$\frac{2(1)+3}{1+2} = \frac{5}{3}$<br>
+所以极限 = $\frac{5}{3}$
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $\displaystyle\lim_{x \to 0} \frac{x+5}{2x+1}$<br>
+解：代入 $x=0$，分母 $2(0)+1=1 \neq 0$：<br>
+$\frac{0+5}{2(0)+1} = \frac{5}{1} = 5$<br>
+所以极限 = 5
+</div>
+
+<h2 class="subject">四、因式分解约分法（0/0型）</h2>
+<div class="key">
+<b>适用情况</b>：代入后出现 $\frac{0}{0}$ 型（分子分母都为0），不能直接代入。<br><br>
+<b>方法</b>：对分子（或分母）进行因式分解，约去使分子分母为0的公因子，再代入计算。<br><br>
+<b>常用因式分解公式：</b><br>
+平方差：$a^2 - b^2 = (a+b)(a-b)$<br>
+完全平方：$a^2 + 2ab + b^2 = (a+b)^2$，$a^2 - 2ab + b^2 = (a-b)^2$<br>
+十字相乘：$x^2 + (p+q)x + pq = (x+p)(x+q)$
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $\displaystyle\lim_{x \to 3} \frac{x^2-9}{x-3}$<br>
+解：代入 $x=3$ 得 $\frac{0}{0}$ 型，因式分解：<br>
+$x^2 - 9 = (x+3)(x-3)$（平方差公式）<br>
+原式 = $\displaystyle\lim_{x \to 3} \frac{(x+3)(x-3)}{x-3} = \lim_{x \to 3} (x+3) = 3+3 = 6$<br>
+所以极限 = 6
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $\displaystyle\lim_{x \to 1} \frac{x^2-1}{x-1}$<br>
+解：代入得 $\frac{0}{0}$ 型：<br>
+$x^2 - 1 = (x+1)(x-1)$<br>
+原式 = $\displaystyle\lim_{x \to 1} \frac{(x+1)(x-1)}{x-1} = \lim_{x \to 1} (x+1) = 1+1 = 2$<br>
+所以极限 = 2
+</div>
+
+<div class="example">
+<b>例题3</b>：求 $\displaystyle\lim_{x \to 2} \frac{x^2-3x+2}{x-2}$<br>
+解：代入得 $\frac{0}{0}$ 型，十字相乘分解分子：<br>
+$x^2 - 3x + 2 = (x-1)(x-2)$<br>
+原式 = $\displaystyle\lim_{x \to 2} \frac{(x-1)(x-2)}{x-2} = \lim_{x \to 2} (x-1) = 2-1 = 1$<br>
+所以极限 = 1
+</div>
+
+<h2 class="subject">五、x→∞时的极限</h2>
+<div class="key">
+当 $x \to \infty$ 时，有理函数（多项式之比）的极限：<br>
+分子最高次 = 分母最高次 → 极限 = 最高次系数之比<br>
+分子最高次 < 分母最高次 → 极限 = 0<br>
+分子最高次 > 分母最高次 → 极限 = ∞（不存在）
+</div>
+
+<div class="example">
+<b>例题</b>：求 $\displaystyle\lim_{x \to \infty} \frac{3x^2+2x-1}{5x^2-4}$<br>
+解：分子最高次2次，分母最高次2次，系数比为 $\frac{3}{5}$<br>
+所以极限 = $\frac{3}{5}$
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body></html>
