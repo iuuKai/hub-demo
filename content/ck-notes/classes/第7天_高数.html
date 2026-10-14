@@ -131,7 +131,49 @@ $\int_a^a f(x) dx = 0$<br><br>
 $\int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx$
 </div>
 
-<h2 class="subject">四、注意事项</h2>
+<h2 class="subject">四、定积分的换元法</h2>
+<div class="key">
+<b>公式</b>：$\int_a^b f(x) dx = \int_\alpha^\beta f[\varphi(t)] \varphi'(t) dt$<br><br>
+其中 $x = \varphi(t)$，$\varphi(\alpha) = a$，$\varphi(\beta) = b$<br><br>
+<b>关键</b>：换元必须换限！<br>
+- 令 $x = \varphi(t)$<br>
+- 当 $x = a$ 时，求出对应的 $t = \alpha$<br>
+- 当 $x = b$ 时，求出对应的 $t = \beta$<br>
+- 积分上下限从 $[a, b]$ 换成 $[\alpha, \beta]$
+</div>
+
+<div class="example">
+<b>例题</b>：求 $\int_0^4 \frac{1}{1+\sqrt{x}} dx$<br><br>
+解：令 $t = \sqrt{x}$，则 $x = t^2$，$dx = 2t dt$<br>
+换限：当 $x = 0$ 时，$t = 0$；当 $x = 4$ 时，$t = 2$<br><br>
+$\int_0^4 \frac{1}{1+\sqrt{x}} dx = \int_0^2 \frac{1}{1+t} \cdot 2t dt = 2\int_0^2 \frac{t}{1+t} dt$<br>
+$= 2\int_0^2 \frac{t+1-1}{1+t} dt = 2\int_0^2 (1 - \frac{1}{1+t}) dt$<br>
+$= 2[t - \ln(1+t)]_0^2 = 2[(2 - \ln 3) - (0 - \ln 1)] = 2(2 - \ln 3) = 4 - 2\ln 3$
+</div>
+
+<h2 class="subject">五、定积分的分部积分法</h2>
+<div class="key">
+<b>公式</b>：$\int_a^b u dv = [uv]_a^b - \int_a^b v du$<br><br>
+<b>记忆</b>：先代上下限算 $uv$，再减去后面的积分<br><br>
+<b>选u的原则（反对幂指三）</b>：<br>
+反三角函数 > 对数函数 > 幂函数 > 指数函数 > 三角函数<br>
+排在前面的选作u，剩下的选作dv
+</div>
+
+<div class="example">
+<b>例题1</b>：求 $\int_0^1 x e^x dx$<br><br>
+解：设 $u = x$，$dv = e^x dx$，则 $du = dx$，$v = e^x$<br><br>
+$\int_0^1 x e^x dx = [x e^x]_0^1 - \int_0^1 e^x dx = (e - 0) - [e^x]_0^1 = e - (e - 1) = 1$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $\int_0^{\pi/2} x \cos x dx$<br><br>
+解：设 $u = x$，$dv = \cos x dx$，则 $du = dx$，$v = \sin x$<br><br>
+$\int_0^{\pi/2} x \cos x dx = [x \sin x]_0^{\pi/2} - \int_0^{\pi/2} \sin x dx$<br>
+$= [(\frac{\pi}{2} \cdot 1) - 0] - [-\cos x]_0^{\pi/2} = \frac{\pi}{2} - (0 + 1) = \frac{\pi}{2} - 1$
+</div>
+
+<h2 class="subject">六、注意事项</h2>
 
 <div class="key">
 <b>易错点提醒</b>：<br>

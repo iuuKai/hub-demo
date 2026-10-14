@@ -158,6 +158,27 @@ $y''' = 6$（三阶导数）<br>
 $y^{(4)} = 0$（四阶导数）
 </div>
 
+<h3>常见函数的n阶导数公式</h3>
+<table>
+<tr><th>函数</th><th>n阶导数</th></tr>
+<tr><td>$e^x$</td><td>$(e^x)^{(n)} = e^x$</td></tr>
+<tr><td>$a^x$</td><td>$(a^x)^{(n)} = a^x (\ln a)^n$</td></tr>
+<tr><td>$\sin x$</td><td>$(\sin x)^{(n)} = \sin(x + \frac{n\pi}{2})$</td></tr>
+<tr><td>$\cos x$</td><td>$(\cos x)^{(n)} = \cos(x + \frac{n\pi}{2})$</td></tr>
+<tr><td>$x^n$</td><td>$(x^n)^{(n)} = n!$，$(x^n)^{(n+1)} = 0$</td></tr>
+<tr><td>$\ln(1+x)$</td><td>$[\ln(1+x)]^{(n)} = (-1)^{n-1} \frac{(n-1)!}{(1+x)^n}$</td></tr>
+</table>
+
+<div class="example">
+<b>例题1</b>：求 $y = e^{2x}$ 的二阶导数<br>
+解：$y' = 2e^{2x}$，$y'' = 4e^{2x}$
+</div>
+
+<div class="example">
+<b>例题2</b>：求 $y = \sin x$ 的三阶导数<br>
+解：$y' = \cos x$，$y'' = -\sin x$，$y''' = -\cos x$
+</div>
+
 <script>
 window.addEventListener('load', function() {
   setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);

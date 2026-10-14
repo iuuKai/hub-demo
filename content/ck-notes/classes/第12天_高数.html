@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第12天 · 高数二</h1>
+<div class="day-tag">遗漏知识点补充（二）</div>
+
+<h2 class="subject">一、闭区间上连续函数的性质</h2>
+
+<h3>1. 最值定理</h3>
+<div class="key">
+如果函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，则 $f(x)$ 在 $[a, b]$ 上必有最大值和最小值。
+</div>
+
+<h3>2. 有界性定理</h3>
+<div class="key">
+如果函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，则 $f(x)$ 在 $[a, b]$ 上必有界。
+</div>
+
+<h3>3. 介值定理</h3>
+<div class="key">
+如果函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，且 $f(a) \neq f(b)$，则对于 $f(a)$ 与 $f(b)$ 之间的任意一个数 $C$，在 $(a, b)$ 内至少存在一点 $\xi$，使得 $f(\xi) = C$。
+</div>
+
+<h3>4. 零点定理（根的存在定理）⭐⭐⭐</h3>
+<div class="key">
+如果函数 $f(x)$ 在闭区间 $[a, b]$ 上连续，且 $f(a) \cdot f(b) < 0$，则在 $(a, b)$ 内至少存在一点 $\xi$，使得 $f(\xi) = 0$。<br><br>
+<b>用途</b>：证明方程有根。
+</div>
+
+<div class="example">
+<b>例题</b>：证明方程 $x^3 - 4x^2 + 1 = 0$ 在 $(0, 1)$ 内至少有一个根。<br><br>
+证明：设 $f(x) = x^3 - 4x^2 + 1$<br>
+① $f(x)$ 在 $[0, 1]$ 上连续（多项式函数处处连续）<br>
+② $f(0) = 0 - 0 + 1 = 1 > 0$<br>
+③ $f(1) = 1 - 4 + 1 = -2 < 0$<br>
+④ 由零点定理，在 $(0, 1)$ 内至少存在一点 $\xi$，使得 $f(\xi) = 0$<br>
+即方程 $x^3 - 4x^2 + 1 = 0$ 在 $(0, 1)$ 内至少有一个根。
+</div>
+
+<h2 class="subject">二、曲线的渐近线</h2>
+
+<h3>1. 水平渐近线</h3>
+<div class="key">
+如果 $\lim_{x \to +\infty} f(x) = A$ 或 $\lim_{x \to -\infty} f(x) = A$，则 $y = A$ 是曲线的水平渐近线。
+</div>
+
+<div class="example">
+<b>例题</b>：求 $y = \frac{1}{x}$ 的水平渐近线。<br>
+解：$\lim_{x \to \infty} \frac{1}{x} = 0$，所以 $y = 0$ 是水平渐近线。
+</div>
+
+<h3>2. 垂直渐近线</h3>
+<div class="key">
+如果 $\lim_{x \to x_0^+} f(x) = \infty$ 或 $\lim_{x \to x_0^-} f(x) = \infty$，则 $x = x_0$ 是曲线的垂直渐近线。<br><br>
+<b>判断方法</b>：找分母为0且分子不为0的点。
+</div>
+
+<div class="example">
+<b>例题</b>：求 $y = \frac{x+1}{x-1}$ 的渐近线。<br><br>
+解：<br>
+<b>垂直渐近线</b>：令分母 $x-1 = 0$，得 $x = 1$，此时分子 $x+1 = 2 \neq 0$<br>
+当 $x \to 1$ 时，$y \to \infty$，所以 $x = 1$ 是垂直渐近线。<br><br>
+<b>水平渐近线</b>：$\lim_{x \to \infty} \frac{x+1}{x-1} = \lim_{x \to \infty} \frac{1+\frac{1}{x}}{1-\frac{1}{x}} = 1$<br>
+所以 $y = 1$ 是水平渐近线。
+</div>
+
+<h3>3. 斜渐近线（了解）</h3>
+<div class="key">
+如果 $\lim_{x \to \infty} \frac{f(x)}{x} = a$ 且 $\lim_{x \to \infty} [f(x) - ax] = b$，则 $y = ax + b$ 是斜渐近线。
+</div>
+
+<h2 class="subject">三、广义积分（反常积分）</h2>
+
+<h3>1. 无穷限的广义积分</h3>
+<div class="key">
+$\int_a^{+\infty} f(x) dx = \lim_{b \to +\infty} \int_a^b f(x) dx$<br><br>
+如果极限存在，称广义积分<b>收敛</b>；否则称<b>发散</b>。
+</div>
+
+<div class="example">
+<b>例题</b>：求 $\int_0^{+\infty} e^{-x} dx$<br><br>
+解：$\int_0^{+\infty} e^{-x} dx = \lim_{b \to +\infty} \int_0^b e^{-x} dx = \lim_{b \to +\infty} [-e^{-x}]_0^b = \lim_{b \to +\infty} (1 - e^{-b}) = 1$<br><br>
+所以广义积分收敛，值为1。
+</div>
+
+<h3>2. 无界函数的广义积分（了解）</h3>
+<div class="key">
+如果 $f(x)$ 在 $(a, b]$ 上连续，且 $\lim_{x \to a^+} f(x) = \infty$，则<br>
+$\int_a^b f(x) dx = \lim_{\varepsilon \to 0^+} \int_{a+\varepsilon}^b f(x) dx$
+</div>
+
+<h2 class="subject">四、条件极值与拉格朗日乘数法</h2>
+
+<h3>1. 什么是条件极值？</h3>
+<div class="key">
+<b>无条件极值</b>：对自变量只有定义域限制，没有其他约束条件。<br>
+<b>条件极值</b>：对自变量除了定义域限制外，还有附加约束条件。
+</div>
+
+<h3>2. 拉格朗日乘数法</h3>
+<div class="key">
+求函数 $z = f(x, y)$ 在约束条件 $\varphi(x, y) = 0$ 下的极值。<br><br>
+构造拉格朗日函数：<br>
+$L(x, y, \lambda) = f(x, y) + \lambda \varphi(x, y)$<br><br>
+求偏导数并令其为0：<br>
+$\begin{cases} L_x = f_x(x, y) + \lambda \varphi_x(x, y) = 0 \\ L_y = f_y(x, y) + \lambda \varphi_y(x, y) = 0 \\ L_\lambda = \varphi(x, y) = 0 \end{cases}$<br><br>
+解出 $x, y, \lambda$，得到可能的极值点。
+</div>
+
+<div class="example">
+<b>例题</b>：求表面积为 $a^2$ 而体积最大的长方体的体积。<br><br>
+解：设长方体的长、宽、高分别为 $x, y, z$，则：<br>
+体积：$V = xyz$<br>
+约束条件：$2(xy + yz + zx) = a^2$，即 $xy + yz + zx = \frac{a^2}{2}$<br><br>
+构造拉格朗日函数：$L = xyz + \lambda(xy + yz + zx - \frac{a^2}{2})$<br><br>
+求偏导：<br>
+$\begin{cases} L_x = yz + \lambda(y + z) = 0 \\ L_y = xz + \lambda(x + z) = 0 \\ L_z = xy + \lambda(x + y) = 0 \\ L_\lambda = xy + yz + zx - \frac{a^2}{2} = 0 \end{cases}$<br><br>
+由前三式可得 $x = y = z$，即正方体时体积最大。<br>
+代入第四式：$3x^2 = \frac{a^2}{2}$，$x = \frac{a}{\sqrt{6}}$<br><br>
+最大体积：$V = x^3 = (\frac{a}{\sqrt{6}})^3 = \frac{a^3}{6\sqrt{6}} = \frac{\sqrt{6}a^3}{36}$
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 800);
+});
+</script>
+</body>
+</html>

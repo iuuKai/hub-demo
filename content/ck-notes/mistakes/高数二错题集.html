@@ -159,6 +159,31 @@ th { background: #eaf2f8; }
 对比记忆：$\sin$ 求导变 $\cos$，$\cos$ 求导变 $-\sin$
 </div>
 
+<h3>错题 #007（薄弱点）</h3>
+<div class="meta">
+<p><b>日期：</b>2026-10-15</p>
+<p><b>类型：</b>导数应用——曲线的渐近线</p>
+<p><b>题目：</b>求曲线 $y = \frac{x+1}{x-1}$ 的水平渐近线和垂直渐近线</p>
+<p><span class="tag tag-wrong">错误答案</span>垂直渐近线是 $x = 1$ 或 $x = -1$</p>
+<p><span class="tag tag-right">正确答案</span>垂直渐近线只有 $x = 1$，水平渐近线是 $y = 1$</p>
+<p><span class="tag tag-reason">错误原因</span>垂直渐近线判断错误，误以为分子为0的点也是垂直渐近线</p>
+<p><span class="tag tag-kp">相关知识点</span>曲线的渐近线——水平渐近线、垂直渐近线</p>
+<p><b>复习状态：</b><span class="status-notyet">🔄 未掌握</span></p>
+</div>
+<div class="note">
+<b>知识点补充：</b><br>
+垂直渐近线判断方法：<br>
+1. 找分母为0的点（函数无定义的点）<br>
+2. 验证该点处分子是否不为0<br>
+&nbsp;&nbsp;- 分子≠0 → y→∞，是垂直渐近线 ✅<br>
+&nbsp;&nbsp;- 分子=0 → 0/0型，需要化简或求极限，不一定是渐近线<br><br>
+本题分析：<br>
+- 分母 $x-1 = 0$ → $x = 1$，此时分子 $x+1 = 2 \neq 0$ → $x=1$ 是垂直渐近线<br>
+- $x = -1$ 时，分子 $x+1 = 0$，分母 $x-1 = -2$，$y = 0$，不是无穷大 → 不是垂直渐近线<br><br>
+水平渐近线：<br>
+$\lim_{x \to \infty} \frac{x+1}{x-1} = \lim_{x \to \infty} \frac{1+\frac{1}{x}}{1-\frac{1}{x}} = 1$ → $y = 1$ 是水平渐近线
+</div>
+
 <h2>薄弱知识点汇总</h2>
 <table>
 <tr><th>知识点</th><th>类型</th><th>掌握程度</th></tr>
@@ -168,6 +193,7 @@ th { background: #eaf2f8; }
 <tr><td>三角函数（sec/csc/cot）</td><td>注意点</td><td>🔄 需加强</td></tr>
 <tr><td>复合函数求偏导（链式法则）</td><td>薄弱点</td><td>🔄 需加强</td></tr>
 <tr><td>三角函数求导符号</td><td>薄弱点</td><td>🔄 需加强</td></tr>
+<tr><td>曲线的渐近线（水平/垂直）</td><td>薄弱点</td><td>🔄 需加强</td></tr>
 </table>
 
 <h2>已掌握的知识点（保持）</h2>

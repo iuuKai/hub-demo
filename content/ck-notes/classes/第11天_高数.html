@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+  svg: {fontCache: 'global'}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 900px; margin: 0 auto; padding: 30px; color: #222; line-height: 1.9; background: #fff; }
+h1 { text-align: center; color: #1a5276; border-bottom: 3px solid #2980b9; padding-bottom: 10px; font-size: 24px; }
+h2.subject { color: #fff; background: #2980b9; padding: 10px 18px; border-radius: 6px; margin-top: 25px; font-size: 20px; }
+h3 { color: #1a5276; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 22px; font-size: 17px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+th { background: #eaf2f8; }
+.example { background: #fef9e7; border-left: 4px solid #f39c12; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.key { background: #eafaf1; border-left: 4px solid #27ae60; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; }
+.formula { background: #f4f6f7; padding: 10px 16px; border-radius: 6px; margin: 10px 0; font-size: 15px; }
+.day-tag { text-align: center; color: #7f8c8d; font-size: 15px; margin-bottom: 20px; }
+p { margin: 8px 0; }
+.step { margin: 4px 0; padding-left: 12px; }
+</style>
+</head>
+<body>
+
+<h1>成考专升本 · 第11天 · 高数二</h1>
+
+<h2 class="subject">一、函数的连续性与间断点 ⭐⭐⭐</h2>
+
+<h3>1. 函数在一点连续的定义</h3>
+<p>设函数 $f(x)$ 在点 $x_0$ 的某个邻域内有定义，如果</p>
+<div class="formula" style="text-align:center;">$\lim_{x \to x_0} f(x) = f(x_0)$</div>
+<p>则称函数 $f(x)$ 在点 $x_0$ 处连续。</p>
+
+<h3>2. 连续的三个条件（缺一不可）</h3>
+<ol>
+<li>$f(x_0)$ 有定义</li>
+<li>$\lim_{x \to x_0} f(x)$ 存在</li>
+<li>极限值 = 函数值</li>
+</ol>
+
+<h3>3. 间断点的类型</h3>
+<p>如果函数 $f(x)$ 在点 $x_0$ 处不连续，则称 $x_0$ 为间断点。</p>
+
+<table>
+<tr><th>类型</th><th>特点</th></tr>
+<tr><td>第一类间断点</td><td>左右极限都存在</td></tr>
+<tr><td>　可去间断点</td><td>左右极限相等，但不等于函数值，或函数无定义</td></tr>
+<tr><td>　跳跃间断点</td><td>左右极限不相等</td></tr>
+<tr><td>第二类间断点</td><td>左右极限至少有一个不存在</td></tr>
+</table>
+
+<div class="example">
+<p><strong>例题</strong>：判断 $f(x) = \frac{x^2 - 1}{x - 1}$ 在 $x = 1$ 处是否连续。</p>
+<p><strong>解</strong>：</p>
+<p class="step">$f(1)$ 无定义（分母为0），所以 $x = 1$ 是间断点。</p>
+<p class="step">又 $\lim_{x \to 1} \frac{x^2 - 1}{x - 1} = \lim_{x \to 1} (x + 1) = 2$，左右极限相等。</p>
+<p class="step">所以 $x = 1$ 是<strong>可去间断点</strong>。</p>
+</div>
+
+<h2 class="subject">二、隐函数求导 ⭐⭐⭐</h2>
+
+<h3>1. 什么是隐函数？</h3>
+<ul>
+<li><strong>显函数</strong>：$y = f(x)$，y直接用x表示出来</li>
+<li><strong>隐函数</strong>：$F(x, y) = 0$，y没有直接解出来，比如 $x^2 + y^2 = 1$</li>
+</ul>
+
+<h3>2. 隐函数求导方法</h3>
+<p>两边同时对x求导，遇到y的时候，把y看作x的函数，用链式法则。</p>
+
+<div class="key">
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>等式两边同时对x求导</li>
+<li>遇到y的项，对x求导时要乘以 $y'$</li>
+<li>解出 $y'$</li>
+</ol>
+</div>
+
+<div class="example">
+<p><strong>例题</strong>：求由方程 $x^2 + y^2 = 1$ 所确定的隐函数的导数 $y'$。</p>
+<p><strong>解</strong>：</p>
+<p class="step">两边对x求导：$2x + 2y \cdot y' = 0$</p>
+<p class="step">解出 $y'$：$y' = -\frac{x}{y}$</p>
+</div>
+
+<h2 class="subject">三、微分的概念与计算 ⭐⭐⭐</h2>
+
+<h3>1. 微分的定义</h3>
+<p>如果函数 $y = f(x)$ 在点 $x_0$ 处的增量可以表示为</p>
+<div class="formula" style="text-align:center;">$\Delta y = A \Delta x + o(\Delta x)$</div>
+<p>其中A是不依赖于 $\Delta x$ 的常数，则称函数在点 $x_0$ 处可微，称 $A \Delta x$ 为函数的微分，记作 $dy$。</p>
+
+<h3>2. 微分公式</h3>
+<div class="formula" style="text-align:center;">$dy = f'(x) dx$</div>
+
+<div class="key">
+<p><strong>理解</strong>：微分就是导数乘以dx，求微分就是先求导数。</p>
+</div>
+
+<div class="example">
+<p><strong>例题</strong>：求 $y = x^2$ 的微分。</p>
+<p><strong>解</strong>：$y' = 2x$，所以 $dy = 2x \, dx$</p>
+</div>
+
+<h3>3. 微分的运算法则</h3>
+<p>和导数的运算法则完全一样，因为 $dy = f'(x) dx$。</p>
+
+<h2 class="subject">四、变上限积分求导 ⭐⭐⭐⭐</h2>
+
+<h3>1. 基本公式</h3>
+<div class="formula" style="text-align:center;">$\frac{d}{dx} \int_a^x f(t) dt = f(x)$</div>
+
+<div class="key">
+<p><strong>理解</strong>：变上限积分求导，直接把上限代入被积函数就行。</p>
+</div>
+
+<h3>2. 推广公式</h3>
+<div class="formula" style="text-align:center;">$\frac{d}{dx} \int_a^{g(x)} f(t) dt = f(g(x)) \cdot g'(x)$</div>
+
+<div class="example">
+<p><strong>例题</strong>：求 $\frac{d}{dx} \int_0^{x^2} \sin t \, dt$</p>
+<p><strong>解</strong>：</p>
+<p class="step">$\frac{d}{dx} \int_0^{x^2} \sin t \, dt = \sin(x^2) \cdot 2x = 2x \sin(x^2)$</p>
+</div>
+
+<h2 class="subject">五、二元函数无条件极值 ⭐⭐⭐⭐</h2>
+
+<h3>1. 解题步骤</h3>
+<ol>
+<li>求一阶偏导，令 $\frac{\partial z}{\partial x} = 0$，$\frac{\partial z}{\partial y} = 0$，解出驻点</li>
+<li>求二阶偏导：$A = \frac{\partial^2 z}{\partial x^2}$，$B = \frac{\partial^2 z}{\partial x \partial y}$，$C = \frac{\partial^2 z}{\partial y^2}$</li>
+<li>判断：
+<ul>
+<li>$AC - B^2 > 0$ 且 $A > 0$ → 极小值</li>
+<li>$AC - B^2 > 0$ 且 $A < 0$ → 极大值</li>
+<li>$AC - B^2 < 0$ → 不是极值</li>
+<li>$AC - B^2 = 0$ → 不确定</li>
+</ul>
+</li>
+</ol>
+
+<div class="example">
+<p><strong>例题</strong>：求 $z = x^2 + y^2 - 2x - 4y + 5$ 的极值。</p>
+<p><strong>解</strong>：</p>
+<p class="step">一阶偏导：$\frac{\partial z}{\partial x} = 2x - 2$，$\frac{\partial z}{\partial y} = 2y - 4$</p>
+<p class="step">令等于0：$x = 1$，$y = 2$，驻点 $(1, 2)$</p>
+<p class="step">二阶偏导：$A = 2$，$B = 0$，$C = 2$</p>
+<p class="step">$AC - B^2 = 4 > 0$，且 $A > 0$ → 极小值</p>
+<p class="step">极小值：$z(1, 2) = 0$</p>
+</div>
+
+</body>
+</html>
