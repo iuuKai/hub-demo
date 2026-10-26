@@ -1,4 +1,6 @@
-export const vercelNav = {
+import type { DefaultTheme } from 'vitepress'
+
+export const navVercel: DefaultTheme.NavItemChildren = {
 	text: 'Vercel',
 	items: [
 		{ text: '通用站点部署指南', link: '/vercel/1' },

@@ -1,4 +1,6 @@
-export const monorepoSidebar = {
+import type { DefaultTheme } from 'vitepress'
+
+export const sidebarMonorepo: DefaultTheme.SidebarMulti = {
 	'/monorepo/': [
 		{
 			text: 'Monorepo 多应用部署方案',

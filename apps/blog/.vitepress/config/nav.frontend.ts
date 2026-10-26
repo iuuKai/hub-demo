@@ -1,4 +1,6 @@
-export const frontendNav = {
+import type { DefaultTheme } from 'vitepress'
+
+export const navFrontend: DefaultTheme.NavItemChildren = {
 	text: '前端',
 	items: [
 		{ text: 'Css', link: '/css/1' },

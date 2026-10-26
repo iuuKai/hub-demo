@@ -1,4 +1,6 @@
-export const exampleSidebar = {
+import type { DefaultTheme } from 'vitepress'
+
+export const sidebarExample: DefaultTheme.SidebarMulti = {
 	'/example/': [
 		{
 			text: 'Examples',
