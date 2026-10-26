@@ -14,6 +14,10 @@
 			"destination": "/apps/blog/.vitepress/dist/index.html"
 		},
 		{
+			"source": "/blog/:path*/",
+			"destination": "/apps/blog/.vitepress/dist/:path*/index.html"
+		},
+		{
 			"source": "/blog/:path*",
 			"destination": "/apps/blog/.vitepress/dist/:path*"
 		},
