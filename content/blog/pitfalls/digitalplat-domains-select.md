@@ -1,5 +1,7 @@
 ---
 outline: deep
+createDate: 2026-10-20
+lastUpdated: 2026-10-30
 ---
 
 # DigitalPlat 免费域名避坑
