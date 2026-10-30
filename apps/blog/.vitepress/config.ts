@@ -5,6 +5,7 @@ import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
 
 const SOURCE_CONTENT_ROOT = path.resolve(__dirname, '../../../content/blog')
+const TEMP_DIR = path.resolve(__dirname, '../.temp-content')
 
 export default defineConfig({
 	lang: 'zh-CN',
@@ -38,7 +39,13 @@ export default defineConfig({
 			const tempFilePath = pageData.filePath
 			if (!tempFilePath) return pageData
 
-			const relPath = path.relative(path.resolve(__dirname, '../.temp-content'), tempFilePath)
+			// 拿到 temp 目录的绝对路径
+			const tempAbs = path.resolve(TEMP_DIR)
+			if (!tempFilePath.startsWith(tempAbs)) return pageData
+
+			// 截取 .temp-content 后面的部分
+			const relPath = tempFilePath.slice(tempAbs.length + 1)
+			// 映射回 content/blog
 			const realSourcePath = path.resolve(SOURCE_CONTENT_ROOT, relPath)
 
 			try {
@@ -49,7 +56,9 @@ export default defineConfig({
 				if (gitOutput) {
 					pageData.frontmatter.lastUpdated = gitOutput
 				}
-			} catch (err) {}
+			} catch (e) {
+				// console.log('git time error', realSourcePath, e)
+			}
 
 			return pageData
 		}
